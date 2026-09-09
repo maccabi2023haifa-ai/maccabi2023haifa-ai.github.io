@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>סיפורי ילדים</title>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-967S23RT27"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-967S23RT27');
+    </script>
+    
+    <!-- Google AdSense (מתוקן) -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7195267048909916" crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #ff6b6b;
+            font-size: 2.5em;
+        }
+        .video-grid {
+            display: grid;
+            /* יוצר רשת רספונסיבית שמתאימה גם למחשב וגם לנייד */
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            max-width: 1000px;
+            margin: 40px auto;
+        }
+        .video-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            cursor: pointer;
+        }
+        .video-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .video-card img {
+            width: 100%;
+            /* הופך את התמונה לריבוע מושלם כפי שביקשת */
+            aspect-ratio: 1 / 1; 
+            object-fit: cover;
+        }
+        .video-title {
+            padding: 15px;
+            font-size: 1.2em;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>רון עם בלון🎈  מקראי סיפורון 📚</h1>
+    <p>בחרו סיפור, לחצו על התמונה, ותהנו!</p>
+
+    <div class="video-grid" id="videoContainer"></div>
+
+    <script>
+        // זהו "פאנל הניהול" הזמני שלך. 
+        // כאן אתה יכול להוסיף עוד ועוד סרטונים בקלות על ידי הוספת שורות.
+        // צריך רק את ה-ID של יוטיוב ואת שם הסיפור.
+        const stories = [
+            { id: "dQw4w9WgXcQ", title: "מנור כבר ילד גדול" }, 
+            { id: "", title: "סיפור שני" },
+            { id: "", title: "סיפור שלישי" }
+        ];
+
+        const container = document.getElementById('videoContainer');
+
+        stories.forEach(story => {
+            // משיכת תמונת התצוגה המקדימה ישירות מהשרתים של יוטיוב
+            const thumbnailUrl = `https://img.youtube.com/vi/${story.id}/hqdefault.jpg`;
+            const videoUrl = `https://www.youtube.com/watch?v=${story.id}`;
+
+            const card = document.createElement('div');
+            card.className = 'video-card';
+            // ברגע שילחצו על הריבוע, זה יפתח את הסרטון בלשונית חדשה
+            card.onclick = () => window.open(videoUrl, '_blank');
+
+            card.innerHTML = `
+                <img src="${thumbnailUrl}" alt="${story.title}">
+                <div class="video-title">${story.title}</div>
+            `;
+
+            container.appendChild(card);
+        });
+    </script>
+</body>
+</html>
