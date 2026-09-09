@@ -3,19 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>סיפורי ילדים</title>
     
-    <!-- Google tag (gtag.js) -->
+    <!-- הכותרת שתופיע בגוגל ובכרטיסיית הדפדפן -->
+    <title>רון עם בלון 🎈 | סיפורי ילדים, ספרים מוקראים וסרטונים לילדים</title>
+    
+    <!-- התיאור שיופיע בתוצאות החיפוש בגוגל -->
+    <meta name="description" content="אתר סיפורי ילדים קסום עם רון עם בלון! הקראת ספרים לילדים ולפעוטות, סרטונים חווייתיים ומהנים לצפייה ישירה. נהדר לילדים ולכל המשפחה.">
+    
+    <!-- מילות מפתח -->
+    <meta name="keywords" content="ילדים, סיפורי ילדים, ספרים לילדים, הקראת ספרים, רון עם בלון, פעוטות, סרטונים לילדים">
+
+    <!-- Google Tag Manager / Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-967S23RT27"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-967S23RT27');
     </script>
     
-    <!-- Google AdSense (מתוקן) -->
+    <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7195267048909916" crossorigin="anonymous"></script>
 
     <style>
@@ -29,10 +36,14 @@
         h1 {
             color: #ff6b6b;
             font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        p {
+            color: #555;
+            font-size: 1.1em;
         }
         .video-grid {
             display: grid;
-            /* יוצר רשת רספונסיבית שמתאימה גם למחשב וגם לנייד */
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 25px;
             max-width: 1000px;
@@ -52,8 +63,7 @@
         }
         .video-card img {
             width: 100%;
-            /* הופך את התמונה לריבוע מושלם כפי שביקשת */
-            aspect-ratio: 1 / 1; 
+            aspect-ratio: 1 / 1;
             object-fit: cover;
         }
         .video-title {
@@ -66,31 +76,27 @@
 </head>
 <body>
 
-    <h1>רון עם בלון🎈  מקראי סיפורון 📚</h1>
+    <h1>רון עם בלון 🎈 מקריא סיפורון 📚</h1>
     <p>בחרו סיפור, לחצו על התמונה, ותהנו!</p>
 
     <div class="video-grid" id="videoContainer"></div>
 
     <script>
-        // זהו "פאנל הניהול" הזמני שלך. 
-        // כאן אתה יכול להוסיף עוד ועוד סרטונים בקלות על ידי הוספת שורות.
-        // צריך רק את ה-ID של יוטיוב ואת שם הסיפור.
+        // הכנס כאן את מזהה הסרטון (החלק שמופיע בקישור של יוטיוב אחרי watch?v=)
         const stories = [
-            { id: "", title: "מנור כבר ילד גדול" }, 
-            { id: "", title: "סיפור שני" },
-            { id: "", title: "סיפור שלישי" }
+            { id: "YOUR_YOUTUBE_ID_1", title: "מנור כבר ילד גדול" }, 
+            { id: "YOUR_YOUTUBE_ID_2", title: "סיפור שני" },
+            { id: "YOUR_YOUTUBE_ID_3", title: "סיפור שלישי" }
         ];
 
         const container = document.getElementById('videoContainer');
 
         stories.forEach(story => {
-            // משיכת תמונת התצוגה המקדימה ישירות מהשרתים של יוטיוב
             const thumbnailUrl = `https://img.youtube.com/vi/${story.id}/hqdefault.jpg`;
             const videoUrl = `https://www.youtube.com/watch?v=${story.id}`;
 
             const card = document.createElement('div');
             card.className = 'video-card';
-            // ברגע שילחצו על הריבוע, זה יפתח את הסרטון בלשונית חדשה
             card.onclick = () => window.open(videoUrl, '_blank');
 
             card.innerHTML = `
